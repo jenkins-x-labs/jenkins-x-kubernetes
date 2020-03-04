@@ -7,11 +7,13 @@ agent:
 pipelines:
   release:
     pipeline:
-      agent:
-        image: gcr.io/jenkinsxio-labs/jxl:0.0.45
       stages:
       - name: release
         options:
+          volumes:
+          - name: jx-boot-secrets
+            secret:
+              secretName: jx-boot-secrets
           containerOptions:
             env:
             - name: HELM_PLUGINS
@@ -19,7 +21,10 @@ pipelines:
             - name: XDG_CONFIG_HOME
               value: "/builder/home"
             - name: JX_SECRETS_YAML
-              value: "/tmp/jx-secrets.yaml"
+              value: "/secrets/jx-boot/secrets.yaml"
+            volumeMounts:
+            - mountPath: /secrets/jx-boot
+              name: jx-boot-secrets
         steps:
         - args:
           - step
@@ -113,17 +118,22 @@ pipelines:
 
   pullRequest:
     pipeline:
-      agent:
-        image: gcr.io/jenkinsxio-labs/jxl:0.0.45
       stages:
       - name: pr-checks
         options:
+          volumes:
+          - name: jx-boot-secrets
+            secret:
+              secretName: jx-boot-secrets
           containerOptions:
             env:
             - name: HELM_PLUGINS
               value: "/root/.cache/helm/plugins"
             - name: JX_SECRETS_YAML
-              value: "/tmp/jx-secrets.yaml"
+              value: "/secrets/jx-boot/secrets.yaml"
+            volumeMounts:
+            - mountPath: /secrets/jx-boot
+              name: jx-boot-secrets
         steps:
         - args:
           - step
