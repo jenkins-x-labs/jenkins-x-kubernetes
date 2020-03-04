@@ -28,6 +28,7 @@ pipelines:
             - mountPath: /secrets/jx-boot
               name: jx-boot-secrets
         steps:
+        - args:
           - step
           - git
           - validate
