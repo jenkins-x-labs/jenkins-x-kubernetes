@@ -9,6 +9,8 @@ pipelines:
     pipeline:
       stages:
       - name: release
+        agent:
+          image: gcr.io/jenkinsxio-labs/jxl:0.0.45
         options:
           volumes:
           - name: jx-boot-secrets
@@ -26,7 +28,6 @@ pipelines:
             - mountPath: /secrets/jx-boot
               name: jx-boot-secrets
         steps:
-        - args:
           - step
           - git
           - validate
@@ -120,6 +121,8 @@ pipelines:
     pipeline:
       stages:
       - name: pr-checks
+        agent:
+          image: gcr.io/jenkinsxio-labs/jxl:0.0.45
         options:
           volumes:
           - name: jx-boot-secrets
