@@ -3,14 +3,14 @@ extends:
   file: pipeline.yaml
 agent:
   label: jenkins-go
-  container: gcr.io/jenkinsxio-labs/jxl:0.0.45
+  container: gcr.io/jenkinsxio-labs/jxl
 pipelines:
   release:
     pipeline:
       stages:
       - name: release
         agent:
-          image: gcr.io/jenkinsxio-labs/jxl:0.0.45
+          image: gcr.io/jenkinsxio-labs/jxl
         options:
           volumes:
           - name: jx-boot-secrets
@@ -126,7 +126,7 @@ pipelines:
       stages:
       - name: pr-checks
         agent:
-          image: gcr.io/jenkinsxio-labs/jxl:0.0.45
+          image: gcr.io/jenkinsxio-labs/jxl
         options:
           volumes:
           - name: jx-boot-secrets
