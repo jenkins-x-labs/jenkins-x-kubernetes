@@ -43,7 +43,7 @@ pipelines:
         - comment: Let's promote through all 'Auto' promotion Environments
           sh: jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)
           name: jx-promote
-          image: gcr.io/jenkinsxio-labs/jxl:0.0.102
+          image: gcr.io/jenkinsxio-labs/jxl
 
 
 
