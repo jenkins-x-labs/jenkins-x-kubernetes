@@ -56,6 +56,9 @@ pipelines:
           command: jx
           dir: /workspace/source
           name: generate-helmfile
+        - command: ./kubectl-apply.sh
+          dir: /workspace/source
+          name: kubectl-apply
         - args:
           - sync
           command: helmfile
