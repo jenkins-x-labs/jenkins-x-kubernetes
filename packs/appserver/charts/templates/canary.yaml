@@ -27,17 +27,17 @@ spec:
     hosts:
     - {{ .Values.canary.host }}
   analysis:
-    interval: {{ .Values.canary.canaryAnalysis.interval }}
-    threshold: {{ .Values.canary.canaryAnalysis.threshold }}
-    maxWeight: {{ .Values.canary.canaryAnalysis.maxWeight }}
-    stepWeight: {{ .Values.canary.canaryAnalysis.stepWeight }}
+    interval: {{ .Values.canary.analysis.interval }}
+    threshold: {{ .Values.canary.analysis.threshold }}
+    maxWeight: {{ .Values.canary.analysis.maxWeight }}
+    stepWeight: {{ .Values.canary.analysis.stepWeight }}
     metrics:
     - name: request-success-rate
-      threshold: {{ .Values.canary.canaryAnalysis.metrics.requestSuccessRate.threshold }}
-      interval: {{ .Values.canary.canaryAnalysis.metrics.requestSuccessRate.interval }}
+      threshold: {{ .Values.canary.analysis.metrics.requestSuccessRate.threshold }}
+      interval: {{ .Values.canary.analysis.metrics.requestSuccessRate.interval }}
     - name: request-duration
-      threshold: {{ .Values.canary.canaryAnalysis.metrics.requestDuration.threshold }}
-      interval: {{ .Values.canary.canaryAnalysis.metrics.requestDuration.interval }}
+      threshold: {{ .Values.canary.analysis.metrics.requestDuration.threshold }}
+      interval: {{ .Values.canary.analysis.metrics.requestDuration.interval }}
 
 ---
 
