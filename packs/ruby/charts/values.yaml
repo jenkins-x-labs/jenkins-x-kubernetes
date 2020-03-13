@@ -26,7 +26,7 @@ hpa:
 canary:
   enabled: false
   progressDeadlineSeconds: 60
-  canaryAnalysis:
+  analysis:
     interval: "1m"
     threshold: 5
     maxWeight: 60
