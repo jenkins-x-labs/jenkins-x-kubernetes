@@ -39,9 +39,9 @@ canary:
       requestDuration:
         threshold: 1000
         interval: "1m"
-  # The host is using Istio Gateway and is currently not auto-generated
-  # Please overwrite the `canary.host` in `values.yaml` in each environment repository (e.g., staging, production)
-  host: acme.com
+  # The host is using Istio Gateway or the underlying ingress mechanism
+  # This value is defaulted from the environments jx-requirements.yml ingress configuration
+  host: ""
 
 service:
   name: REPLACE_ME_APP_NAME

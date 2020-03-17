@@ -25,7 +25,7 @@ spec:
     gateways:
     - {{ template "fullname" . }}
     hosts:
-    - {{ .Values.canary.host }}
+    - {{ .Values.canary.host | default (printf "%s%s%s"  .Values.service.name .Values.jxRequirements.ingress.namespaceSubDomain .Values.jxRequirements.ingress.domain) }}
   analysis:
     interval: {{ .Values.canary.analysis.interval }}
     threshold: {{ .Values.canary.analysis.threshold }}
@@ -54,5 +54,5 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - {{ .Values.canary.host }}
+    - {{ .Values.canary.host | default (printf "%s%s%s"  .Values.service.name .Values.jxRequirements.ingress.namespaceSubDomain .Values.jxRequirements.ingress.domain) }}
 {{- end }}
