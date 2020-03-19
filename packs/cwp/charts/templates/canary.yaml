@@ -32,12 +32,13 @@ spec:
     maxWeight: {{ .Values.canary.analysis.maxWeight }}
     stepWeight: {{ .Values.canary.analysis.stepWeight }}
     metrics:
-    - name: request-success-rate
-      threshold: {{ .Values.canary.analysis.metrics.requestSuccessRate.threshold }}
-      interval: {{ .Values.canary.analysis.metrics.requestSuccessRate.interval }}
-    - name: request-duration
-      threshold: {{ .Values.canary.analysis.metrics.requestDuration.threshold }}
-      interval: {{ .Values.canary.analysis.metrics.requestDuration.interval }}
+    - name: latency
+      templateRef:
+        name: latency
+        namespace: istio-system
+      thresholdRange:
+        max: {{ .Values.canary.analysis.metrics.latency.threshold }}
+      interval: {{ .Values.canary.analysis.metrics.latency.interval | quote }}
 
 ---
 

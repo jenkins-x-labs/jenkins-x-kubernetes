@@ -33,11 +33,8 @@ canary:
     stepWeight: 20
     # WARNING: Canary deployments will fail and rollback if there is no traffic that will generate the below specified metrics.
     metrics:
-      requestSuccessRate:
-        threshold: 99
-        interval: "1m"
-      requestDuration:
-        threshold: 1000
+      latency:
+        threshold: 500
         interval: "1m"
   # The host is using Istio Gateway or the underlying ingress mechanism
   # This value is defaulted from the environments jx-requirements.yml ingress configuration
