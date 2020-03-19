@@ -1,6 +1,6 @@
 agent:
   label: jenkins-jx-base
-  container: gcr.io/jenkinsxio/jxl
+  container: gcr.io/jenkinsxio-labs/jxl
 pipelines:
   pullRequest:
     build:
