@@ -40,7 +40,6 @@ pipelines:
           - verify
           - preinstall
           - --disable-verify-packages
-          - --provider-values-dir="kubeProviders"
           command: jx
           dir: /workspace/source
           name: verify-preinstall
