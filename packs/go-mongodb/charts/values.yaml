@@ -83,6 +83,7 @@ jxRequirements:
     domain: ""
     externalDNS: false
     namespaceSubDomain: -jx.
+    serviceType: ""
     tls:
       email: ""
       enabled: false
