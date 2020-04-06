@@ -132,8 +132,7 @@ pipelines:
         options:
           volumes:
           - name: jx-boot-secrets
-            secret:
-              secretName: jx-boot-secrets
+            emptyDir: {}
           containerOptions:
             env:
             - name: HELM_PLUGINS
